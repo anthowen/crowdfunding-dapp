@@ -1,10 +1,8 @@
-import { CrowdfundingEvent, CrowdfundingEventJson } from 'contracts';
 import { getDefaultWallets } from '@rainbow-me/rainbowkit'
 import { configureChains, createClient } from 'wagmi'
 import { polygonMumbai } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
-
-console.log( { abi: CrowdfundingEventJson.abi } );
+import { SITE_NAME } from '../utils/config'
 
 const { chains, provider, webSocketProvider } = configureChains(
   [polygonMumbai],
@@ -14,7 +12,7 @@ const { chains, provider, webSocketProvider } = configureChains(
 )
 
 const { connectors } = getDefaultWallets({
-  appName: 'My wagmi + RainbowKit App',
+  appName: SITE_NAME,
   chains,
 })
 

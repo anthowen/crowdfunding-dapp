@@ -1,18 +1,16 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { useAccount } from 'wagmi'
+import { Heading, Text } from '@chakra-ui/react'
+import { Head } from '../components/layout/Head'
+import { SITE_DESCRIPTION, SITE_NAME } from '../utils/config'
 
-import { Account } from '../components'
-
-function Page() {
-  const { isConnected } = useAccount()
+export default function Home() {
   return (
     <>
-      <h1>wagmi + RainbowKit + Next.js</h1>
+      <Head />
 
-      <ConnectButton />
-      {isConnected && <Account />}
+      <main>
+        <Heading as="h2">{SITE_NAME}</Heading>
+        <Text>{SITE_DESCRIPTION}</Text>
+      </main>
     </>
   )
 }
-
-export default Page
