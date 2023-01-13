@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, useColorModeValue, Spacer, Heading } from '@chakra-ui/react'
+import { Flex, useColorModeValue, Spacer, Heading, Text } from '@chakra-ui/react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { SITE_NAME } from '../../utils/config'
 import { LinkComponent } from './LinkComponent'
@@ -18,6 +18,12 @@ export function Header(props: Props) {
         <Heading as="h1" size="md">
           {SITE_NAME}
         </Heading>
+      </LinkComponent>
+
+      <LinkComponent href="/faucet">
+        <Text as="p" size="sm" ml="2rem">
+          Faucet
+        </Text>
       </LinkComponent>
 
       <Spacer />

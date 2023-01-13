@@ -6,45 +6,38 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract CrowdfundingEvent is Ownable {
   string public title;
-  mapping(address => bool) public tokenWhitelist;
+  mapping(address => bool) public tokenAllowlist;
 
   error InvalidToken();
   error NotEnoughAmount();
   error NotEnoughBalanceOrApproval();
-  error NotWhitelistedToken();
+  error NotAllowedToken();
   error WithdrawFail();
 
   event Deposit(address indexed user, address indexed token, uint256 indexed amount);
   event Withdraw(address indexed token, uint256 indexed amount);
-  event WhitelistToken(address indexed token, bool indexed whitelist);
+  event AllowToken(address indexed token, bool indexed allowed);
 
-  function depositERC20(address _token, uint256 _amount) external {
-    if (_token == address(0)) {
-      revert InvalidToken();
+  /**
+   * @dev Deposit tokens in the form of native token or ERC20 token. Emits Deposit event for successful deposit.
+   * @param _token ERC20 token address
+   * @param _amount ERC20 token amount
+   * @notice When _token is a zero address, it means sender only deposits native token. Otherwise, it will deposit the specified ERC20 token amount. When _token is not a zero address and msg.value is not empty, it will deposit both native and ERC20 tokens
+   */
+  function deposit(address _token, uint256 _amount) external payable {
+    if (msg.value > 0) {
+      emit Deposit(msg.sender, address(0), msg.value);
     }
 
-    if (tokenWhitelist[_token] == false) {
-      revert NotWhitelistedToken();
+    if (_token != address(0)) {
+      _depositERC20(_token, _amount);
     }
-
-    IERC20 token = IERC20(_token);
-    bool success = token.transferFrom(msg.sender, address(this), _amount);
-
-    if (!success) {
-      revert NotEnoughBalanceOrApproval();
-    }
-
-    emit Deposit(msg.sender, _token, _amount);
   }
 
-  function deposit() external payable {
-    if (msg.value == 0) {
-      revert NotEnoughAmount();
-    }
-
-    emit Deposit(msg.sender, address(0), msg.value);
-  }
-
+  /**
+   * @dev Withdraw the balance of specified token (ERC20 or native token) to the contract owner
+   * @notice Only callable by the contract owner
+   */
   function withdraw(address _token) external onlyOwner {
     bool sent;
     uint256 amount;
@@ -64,13 +57,46 @@ contract CrowdfundingEvent is Ownable {
     emit Withdraw(_token, amount);
   }
 
-  function whitelistERC20(address _token, bool _whitelist) external onlyOwner {
-    tokenWhitelist[_token] = _whitelist;
+  /**
+   * @dev Allow specific ERC20 token to be deposited.
+   * @param _token ERC20 token address
+   * @param _allow True if to allow the token, otherwise false
+   */
+  function allowERC20(address _token, bool _allow) external onlyOwner {
+    tokenAllowlist[_token] = _allow;
 
-    emit WhitelistToken(_token, _whitelist);
+    emit AllowToken(_token, _allow);
   }
 
+  /**
+   * @dev Set campaign title
+   * @param _title Title
+   */
   function setCampaignTitle(string memory _title) external onlyOwner {
     title = _title;
+  }
+
+  /**
+   * @dev Internal function to only deposit ERC20 token. Token should be allowed first.
+   * @param _token ERC20 token address
+   * @param _amount Amount of token to deposit
+   */
+  function _depositERC20(address _token, uint256 _amount) internal {
+    if (_token == address(0)) {
+      revert InvalidToken();
+    }
+
+    if (tokenAllowlist[_token] == false) {
+      revert NotAllowedToken();
+    }
+
+    IERC20 token = IERC20(_token);
+    bool success = token.transferFrom(msg.sender, address(this), _amount);
+
+    if (!success) {
+      revert NotEnoughBalanceOrApproval();
+    }
+
+    emit Deposit(msg.sender, _token, _amount);
   }
 }
