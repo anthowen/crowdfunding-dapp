@@ -7,6 +7,9 @@
     "packages/*"
   ],
   "scripts": {
+    "contract:compile": "yarn workspace contracts compile",
+    "contract:build": "yarn workspace contracts build",
+    "frontend:build": "yarn workspace frontend build"
   },
   "dependencies": {
     "ethers": "^5.7.2"

@@ -21,11 +21,11 @@ function useTokenAllowance() {
     watch: true,
   });
 
-  const allowances: Record<Address, BigNumber> = useMemo(() => {
+  const allowances = useMemo(() => {
     return {
       [usdtContract.address]: data?.[0],
       [usdcContract.address]: data?.[1],
-    }
+    } as Record<Address, BigNumber>;
   }, [data]);
 
   return {

@@ -12,7 +12,7 @@ function useTokenBalances(account?: Address) {
   })
   
   const { data: balances, isLoading, isError } = useContractReads({
-    contracts: accountToFetch ? [
+    contracts: [
       {
         ...usdtContract,
         functionName: 'balanceOf',
@@ -23,7 +23,7 @@ function useTokenBalances(account?: Address) {
         functionName: 'balanceOf',
         args: [accountToFetch]
       }
-    ] : [],
+    ],
     watch: true,
   });
 
