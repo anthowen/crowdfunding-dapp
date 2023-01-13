@@ -5,8 +5,10 @@
 		"source.fixAll": true
 	},
 	"mochaExplorer.env": {
-		"HARDHAT_CONFIG": "hardhat.config.ts",
+		"HARDHAT_CONFIG": "${workspaceFolder}/packages/contracts/hardhat.config.ts",
 		"HARDHAT_COMPILE": "true"
 	},
-	"mochaExplorer.require": ["ts-node/register/transpile-only"]
+	"mochaExplorer.require": [
+		"ts-node/register/transpile-only"
+	]
 }
