@@ -9,7 +9,7 @@
   "scripts": {
     "contract:compile": "yarn workspace contracts compile",
     "contract:build": "yarn workspace contracts build",
-    "frontend:build": "yarn workspace frontend build",
+    "app:build": "yarn workspace app build",
     "postinstall": "yarn contract:compile && yarn contract:build"
   },
   "dependencies": {

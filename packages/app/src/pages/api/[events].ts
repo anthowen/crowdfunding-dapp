@@ -3,7 +3,7 @@ import { BigNumber, ethers } from "ethers";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { eventContract } from "../../utils/contracts";
 import { convertFromHexString } from "../../utils/string";
-import { getRpcProvider } from './../../utils/rpc';
+import { getRpcProvider } from '../../utils/rpc';
 
 const FILTER_BLOCK_STEP = 3000;
 const topicIds: Record<string, string> = {

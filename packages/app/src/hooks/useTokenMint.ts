@@ -1,4 +1,4 @@
-import { usdcContract } from './../utils/contracts';
+import { usdcContract } from '../utils/contracts';
 import { BigNumber, constants } from "ethers";
 import { Address, useAccount, useContractWrite, usePrepareContractWrite } from "wagmi";
 import { usdtContract } from "../utils/contracts";

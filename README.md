@@ -10,14 +10,13 @@ This is a monorepo with yarn workspace based setup. It has 2 packages:
   
   Hardhat project. It provides 3 contracts - `CrowdfundingEvent`, `MockUSDT`, and `MockUSDC`
 
-- [frontend](./packages/frontend/)
+- [app](./packages/app/)
 
   Next.js based dApp. 
 
 ## Tech spec
 
 - Contracts
-
   - Solidity
   - Hardhat
   - OpenZeppelin
