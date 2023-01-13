@@ -1,16 +1,17 @@
-export type TokenLabel = 'USDT' | 'USDC' | 'MATIC';
+export type TokenLabel = "USDT" | "USDC" | "MATIC";
 
-export type DepositEvent = {
+export interface BaseEvent {
   hash: string;
   blockNumber: number;
+}
+
+export interface DepositEvent extends BaseEvent {
   account: string;
   token: string;
   amount: string;
-};
+}
 
-export type WithdrawEvent = {
-  hash: string;
-  blockNumber: number;
+export interface DepositEvent extends BaseEvent {
   token: string;
   amount: string;
-};
+}

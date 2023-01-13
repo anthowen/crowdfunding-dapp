@@ -10,11 +10,17 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import useSWR from "swr";
+import { BaseEvent } from "../types";
 import DepositHistory from "./deposit/DepositHistory";
 import WithdrawHistory from "./withdraw/WithdrawHistory";
 
 const fetcher = (event: string) =>
-  fetch(`/api/${event}`).then((res) => res.json());
+  fetch(`/api/${event}`)
+    .then((res) => res.json())
+    .then((data: BaseEvent[]) => {
+      data.sort((a, b) => b.blockNumber - a.blockNumber);
+      return data;
+    });
 
 function History() {
   const {
