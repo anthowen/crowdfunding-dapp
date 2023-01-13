@@ -27,7 +27,9 @@ function WithdrawHistory({ data = [] }: Props) {
   return (
     <TableContainer>
       <Table variant="striped" colorScheme="gray">
-        <TableCaption>{`Withdraw history ${data.length === 0 ? ' (No withdraws yet) ' : ''}`}</TableCaption>
+        <TableCaption>{`Withdraw history ${
+          data.length === 0 ? " (No withdraws yet) " : ""
+        }`}</TableCaption>
         <Thead>
           <Tr>
             <Th>Transaction</Th>
@@ -36,7 +38,7 @@ function WithdrawHistory({ data = [] }: Props) {
           </Tr>
         </Thead>
         <Tbody>
-        {data.map(({ hash, blockNumber, token, amount }, idx) => (
+          {data.map(({ hash, blockNumber, token, amount }, idx) => (
             <Tr key={idx}>
               <Td>
                 <Link

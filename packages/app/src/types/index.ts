@@ -11,7 +11,7 @@ export interface DepositEvent extends BaseEvent {
   amount: string;
 }
 
-export interface DepositEvent extends BaseEvent {
+export interface WithdrawEvent extends BaseEvent {
   token: string;
   amount: string;
 }

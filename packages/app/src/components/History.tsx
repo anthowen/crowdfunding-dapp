@@ -10,15 +10,15 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import useSWR from "swr";
-import { BaseEvent } from "../types";
+import { BaseEvent, DepositEvent, WithdrawEvent } from "../types";
 import DepositHistory from "./deposit/DepositHistory";
 import WithdrawHistory from "./withdraw/WithdrawHistory";
 
 const fetcher = (event: string) =>
   fetch(`/api/${event}`)
     .then((res) => res.json())
-    .then((data: BaseEvent[]) => {
-      data.sort((a, b) => b.blockNumber - a.blockNumber);
+    .then((data) => {
+      data.sort((a: BaseEvent, b: BaseEvent) => b.blockNumber - a.blockNumber);
       return data;
     });
 
@@ -27,12 +27,12 @@ function History() {
     data: deposits,
     error: depositError,
     isValidating: depositValidating,
-  } = useSWR("deposit", fetcher);
+  } = useSWR<DepositEvent[]>("deposit", fetcher);
   const {
     data: withdraws,
     error: withdrawError,
     isValidating: withdrawValidating,
-  } = useSWR("withdraw", fetcher);
+  } = useSWR<WithdrawEvent[]>("withdraw", fetcher);
 
   return (
     <Tabs size="md" variant="enclosed">
