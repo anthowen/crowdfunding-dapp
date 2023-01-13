@@ -1,4 +1,29 @@
-# Boilerplate for ethereum solidity smart contract development
+# Contracts for Crowdfunding dApp
+
+## Introduction
+
+- `CrowdfundingEvent.sol`
+
+  Only allowed ERC20 tokens and native token can be used to deposit to the event.
+
+  Provides 3 main functions:
+  - `deposit(token, amount) payable`
+  - `withdraw() onlyOwner`
+  - `alloweERC20(token, allow) onlyOwner`
+
+- `MockUSDT.sol`
+
+  Mock ERC20 contract for USDT with capped supply of 1 billion tokens.
+  Owner gets minted 20m tokens at contract deploy.
+
+  Provides public `mint()` for anyone to mint tokens.
+
+- `MockUSDC.sol`
+
+  Mock ERC20 contract for USDC with capped supply of 1 billion tokens.
+  Owner gets minted 20m tokens at contract deploy.
+
+  Provides public `mint()` for anyone to mint tokens.
 
 ## INSTALL
 

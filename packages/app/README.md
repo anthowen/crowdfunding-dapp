@@ -1,8 +1,27 @@
+# dApp
+
+## API
+
+- `/api/deposit` or `/api/withdraw`
+  
+  Returns all deposits or withdraw logs for the crowdfunding event contract
+
+## Frontend
+
+- Home page
+
+  You can deposit or withdraw tokens, and see deposit/withdraw history
+
+- Faucet page
+
+  Mint test ERC20 tokens to use in the app.
+
+
 This is a [wagmi](https://wagmi.sh) + [RainbowKit](https://rainbowkit.com) + [Next.js](https://nextjs.org) project bootstrapped with [`create-wagmi`](https://github.com/wagmi-dev/wagmi/tree/main/packages/create-wagmi)
 
 # Getting Started
 
-Run `npm run dev` in your terminal, and then open [localhost:3000](http://localhost:3000) in your browser.
+Run `yarn dev` in your terminal, and then open [localhost:3000](http://localhost:3000) in your browser.
 
 Once the webpage has loaded, changes made to files inside the `src/` directory (e.g. `src/pages/index.tsx`) will automatically update the webpage.
 
