@@ -35,6 +35,8 @@ The app supports 3 tokens - MATIC (Native token), USDT (mock) and USDC (mock).
 
 ### Deposit 
 
+![Deposit and Deposit History](./screenshots/Deposit.png)
+
 Connect your wallet, choose the token type to deposit, and input an amount.
 
 You need to approve first to allow `CrowdfundingEvent` contract to transfer the selected amount of tokens.
@@ -45,6 +47,8 @@ On the history section, click on Deposit and see if your deposit is showing up t
 
 ### Withdraw
 
+![Withdraw and Withdraw History](./screenshots/Withdraw.png)
+
 This is only available only to an owner of the `CrowdfundingEvent` contract.
 
 Connect your wallet, and see the deposited token balance.
@@ -53,11 +57,15 @@ Choose a token to withdraw, and click withdraw. The all of available balance wil
 
 ### Mint test ERC20 tokens
 
+![Faucet](./screenshots/Faucet.png)
+
 You will need to have test USDT & USDC tokens to deposit tokens other than native token.
 
 Just connect your wallet and use the mint button to get specific ERC20 tokens.
 
 ## TODOs
 
+- [ ] Contract unit tests
+- [ ] Infinite scrolling in Deposit/Withdraw history
+- [ ] Deposit/Withdraw instant updates
 - [ ] ...
-
