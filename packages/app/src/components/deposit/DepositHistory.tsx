@@ -14,7 +14,7 @@ import { DepositEvent } from "../../types";
 import { shortenHexString } from "../../utils/string";
 import { formatEther } from "ethers/lib/utils.js";
 import { useNetwork } from "wagmi";
-import { getTokenLabel } from "../../utils/config";
+import { DEFAULT_EXPLORER, getTokenLabel } from "../../utils/config";
 
 interface Props {
   data: DepositEvent[];
@@ -22,7 +22,7 @@ interface Props {
 
 function DepositHistory({ data = [] }: Props) {
   const { chain } = useNetwork();
-  const explorerUrl = chain?.blockExplorers?.default.url;
+  const explorerUrl = chain?.blockExplorers?.default.url || DEFAULT_EXPLORER;
 
   return (
     <TableContainer>
