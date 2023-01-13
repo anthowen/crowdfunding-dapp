@@ -8,7 +8,7 @@ import { usdcContract, usdtContract } from "./contracts";
 export const SITE_NAME = "Crowdfunding DApp";
 export const SITE_DESCRIPTION =
   "Crowdfunding DApp where people can contribute with MATIC/ERC20 tokens";
-export const DEFAULT_EXPLORER = "https://mumhttps://mumbai.polygonscan.com";
+export const DEFAULT_EXPLORER = "https://mumbai.polygonscan.com";
 
 export const THEME_INITIAL_COLOR = "system";
 export const THEME_COLOR_SCHEME: ThemingProps["colorScheme"] = "gray";
