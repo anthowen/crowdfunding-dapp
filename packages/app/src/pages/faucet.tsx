@@ -62,10 +62,18 @@ export default function Home() {
           </Card>
 
           <HStack spacing={8}>
-            <Button colorScheme="telegram" onClick={handleUSDTMint} disabled={!address}>
+            <Button
+              colorScheme="telegram"
+              onClick={handleUSDTMint}
+              disabled={!address}
+            >
               Mint 10,000 USDT
             </Button>
-            <Button colorScheme="telegram" onClick={handleUSDCMint} disabled={!address}>
+            <Button
+              colorScheme="telegram"
+              onClick={handleUSDCMint}
+              disabled={!address}
+            >
               Mint 10,000 USDC
             </Button>
           </HStack>

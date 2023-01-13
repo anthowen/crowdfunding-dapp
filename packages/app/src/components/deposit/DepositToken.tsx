@@ -74,7 +74,7 @@ function DepositToken({}: Props) {
   React.useEffect(() => {
     if (depositSucces) {
       setTimeout(() => {
-        mutate('deposit');
+        mutate("deposit");
       }, 1000);
     }
   }, [mutate, depositSucces]);

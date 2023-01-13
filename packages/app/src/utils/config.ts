@@ -5,9 +5,9 @@ import { Address } from "wagmi";
 import { TokenLabel } from "../types";
 import { usdcContract, usdtContract } from "./contracts";
 
-export const SITE_NAME = "Crowdfunding DApp";
+export const SITE_NAME = "Crowdfunding dApp";
 export const SITE_DESCRIPTION =
-  "Crowdfunding DApp where people can contribute with MATIC/ERC20 tokens";
+  "Crowdfunding dApp where people can contribute with MATIC/ERC20 tokens";
 export const DEFAULT_EXPLORER = "https://mumbai.polygonscan.com";
 
 export const THEME_INITIAL_COLOR = "system";
