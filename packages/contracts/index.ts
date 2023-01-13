@@ -1,8 +1,3 @@
-// Export type definitions
-export { CrowdfundingEvent } from './typechain/src/CrowdfundingEvent';
-export { MockUSDC } from './typechain/src/MockUSDC';
-export { MockUSDT } from './typechain/src/MockUSDT';
-
 // Export deployed address and abi
 import CrowdfundingEventJson from './deployments/mumbai/CrowdfundingEvent.json';
 import MockUSDTJson from './deployments/mumbai/MockUSDT.json';
