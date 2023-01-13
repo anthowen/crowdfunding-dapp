@@ -9,7 +9,8 @@
   "scripts": {
     "contract:compile": "yarn workspace contracts compile",
     "contract:build": "yarn workspace contracts build",
-    "frontend:build": "yarn workspace frontend build"
+    "frontend:build": "yarn workspace frontend build",
+    "postinstall": "yarn contract:compile && yarn contract:build"
   },
   "dependencies": {
     "ethers": "^5.7.2"
