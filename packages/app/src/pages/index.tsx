@@ -62,7 +62,7 @@ export default function Home() {
           <Card>
             <CardHeader>
               <Heading as="h4" size="md">
-                {isOwner ? "Withdraw" : "Deposit"}
+                {isOwner ? "Withdrawal" : "Deposit"}
               </Heading>
             </CardHeader>
             <CardBody>
@@ -72,7 +72,7 @@ export default function Home() {
 
           <Box>
             <Text as="p" mb="4" fontSize="xl">
-              See past deposit/withdraw history below.
+              See past deposit/withdrawal history below.
             </Text>
             <History />
           </Box>

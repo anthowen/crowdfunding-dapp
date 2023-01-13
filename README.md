@@ -1,22 +1,23 @@
 # Crowdfunding dApp
 
-The dApp allows users to deposit funds using a smart contract, view the deposit and withdrawal history, and interact with the dApp through a user interface. 
+The dApp allows users to deposit funds using a smart contract, view the deposit and withdrawal history, and interact with the dApp through a user interface.
 
 ## Setup
 
 This is a monorepo with yarn workspace based setup. It has 2 packages:
 
 - [contracts](./packages/contracts/)
-  
+
   Hardhat project. It provides 3 contracts - `CrowdfundingEvent`, `MockUSDT`, and `MockUSDC`
 
 - [app](./packages/app/)
 
-  Next.js based dApp. 
+  Next.js based dApp.
 
 ## Tech spec
 
 - Contracts
+
   - Solidity
   - Hardhat
   - OpenZeppelin
@@ -29,11 +30,11 @@ This is a monorepo with yarn workspace based setup. It has 2 packages:
   - RainbowKit
   - SWR
 
-## dApp 
+## dApp
 
 The app supports 3 tokens - MATIC (Native token), USDT (mock) and USDC (mock).
 
-### Deposit 
+### Deposit
 
 ![Deposit and Deposit History](./screenshots/Deposit.png)
 
@@ -47,7 +48,7 @@ On the history section, click on Deposit and see if your deposit is showing up t
 
 ### Withdraw
 
-![Withdraw and Withdraw History](./screenshots/Withdraw.png)
+![Withdraw and Withdrawal History](./screenshots/Withdraw.png)
 
 This is only available only to an owner of the `CrowdfundingEvent` contract.
 

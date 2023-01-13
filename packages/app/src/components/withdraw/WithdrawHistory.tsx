@@ -27,7 +27,7 @@ function WithdrawHistory({ data = [] }: Props) {
   return (
     <TableContainer>
       <Table variant="striped" colorScheme="gray">
-        <TableCaption>{`Withdraw history ${
+        <TableCaption>{`Withdrawal history ${
           data.length === 0 ? " (No withdraws yet) " : ""
         }`}</TableCaption>
         <Thead>

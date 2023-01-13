@@ -38,7 +38,7 @@ function History() {
     <Tabs size="md" variant="enclosed">
       <TabList>
         <Tab>Deposit</Tab>
-        <Tab>Withdraw</Tab>
+        <Tab>Withdrawal</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>
@@ -59,7 +59,7 @@ function History() {
         <TabPanel>
           {withdraws && withdrawValidating ? (
             <Text as={Flex} alignItems="center">
-              Updating withdraws <Spinner size="sm" ml="2" />
+              Updating withdrawals <Spinner size="sm" ml="2" />
             </Text>
           ) : null}
 
