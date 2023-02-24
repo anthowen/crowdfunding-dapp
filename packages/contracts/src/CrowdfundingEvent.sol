@@ -19,7 +19,7 @@ contract CrowdfundingEvent is Ownable {
   event AllowToken(address indexed token, bool indexed allowed);
 
   /**
-   * @dev Deposit tokens in the form of native token or ERC20 token. Emits Deposit event for successful deposit.
+   * @dev Deposit tokens in the form of native token or ERC20 token. Emits Deposit event for successful deposit
    * @param _token ERC20 token address
    * @param _amount ERC20 token amount
    * @notice When _token is a zero address, it means sender only deposits native token. Otherwise, it will deposit the specified ERC20 token amount. When _token is not a zero address and msg.value is not empty, it will deposit both native and ERC20 tokens
@@ -99,4 +99,16 @@ contract CrowdfundingEvent is Ownable {
 
     emit Deposit(msg.sender, _token, _amount);
   }
+
+  // Fallback function must be declared as external.
+  fallback() external payable {
+    // Emit Deposit event, so treat a direct transfer as deposit as well
+    emit Deposit(msg.sender, address(0), msg.value);
+  }
+
+  // Receive is a variant of fallback that is triggered when msg.data is empty
+  receive() external payable {
+    emit Deposit(msg.sender, address(0), msg.value);
+  }
+
 }
