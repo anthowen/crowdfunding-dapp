@@ -19,7 +19,7 @@ contract CrowdfundingEvent is Ownable {
   event AllowToken(address indexed token, bool indexed allowed);
 
   /**
-   * @dev Deposit tokens in the form of native token or ERC20 token. Emits Deposit event for successful deposit
+   * @dev Deposit tokens in the form of native token or ERC20 token. Emits Deposit event for successful deposit.
    * @param _token ERC20 token address
    * @param _amount ERC20 token amount
    * @notice When _token is a zero address, it means sender only deposits native token. Otherwise, it will deposit the specified ERC20 token amount. When _token is not a zero address and msg.value is not empty, it will deposit both native and ERC20 tokens
@@ -35,8 +35,8 @@ contract CrowdfundingEvent is Ownable {
   }
 
   /**
-   * @dev Withdraw the balance of specified token (ERC20 or native token) to the contract owner
-   * @notice Only callable by the contract owner
+   * @dev Withdraw the balance of specified token (ERC20 or native token) to the contract owner.
+   * @notice Only callable by the contract owner.
    */
   function withdraw(address _token) external onlyOwner {
     bool sent;
