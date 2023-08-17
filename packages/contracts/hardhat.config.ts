@@ -23,7 +23,7 @@ const config: HardhatUserConfig = {
 		],
 	},
 	namedAccounts: {
-		deployer: 0,
+		deployer: 1,
 		simpleERC20Beneficiary: 1,
 	},
 	networks: addForkConfiguration({
